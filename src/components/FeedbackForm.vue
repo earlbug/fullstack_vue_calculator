@@ -38,22 +38,22 @@ import axios from 'axios'
 export default {
   data () {
     return {
-      list: [
-        'item1',
-        'item2',
-        'item3'
-      ]
+      feedbackEntry: {
+        name: 'erl',
+        email: 'wggr@',
+        feedback: 'work not'
+      }
     }
   },
   methods: {
-    sendForm   () {
+    sendForm () {
       // important to validate
-      //  Axios post sends a promise
+      //  Axios sends a promise
       axios.post(
         // url to where to post data to
         'https://my-json-server.typicode.com/earlbug/fullstack_vue_calculator',
         //payload to send to server
-        this.event
+        this.feedbackEntry
       )
       .then(function (response) {
         console.log('Response', response)
@@ -61,7 +61,6 @@ export default {
       .catch(function (err) {
       console.log('Error', err)
       })
-      // handle form submission
     }
   }
 }
