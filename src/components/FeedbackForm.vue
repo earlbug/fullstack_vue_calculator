@@ -5,26 +5,28 @@ import BaseTextField from './BaseTextField.vue';
 </script>
 
 <template>
-  <BaseInput
+  <form>
+
+    <BaseInput
     v-model="name"
     label="Name"
     type="text"
-  />
+    />
 
-  <BaseInput
+    <BaseInput
     v-model="email"
     label="E-mail"
     type="text"
-  />
+    />
 
-  <BaseTextField
+    <BaseTextField
     v-model="feedback"
     label="Feedback"
     type="text"
-  />
+    />
 
-  <textarea name="" id="">owfoj</textarea>
-
+    <button type="submit">Submit</button>
+  </form>
 
 
 
