@@ -1,6 +1,10 @@
+<script setup>
+import BaseInput from './BaseInput.vue';
+
+</script>
+
 <template>
-  <label><input type="text"></label>
-  <input >
+  <BaseInput/>
 
 
 </template>
