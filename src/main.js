@@ -1,21 +1,24 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-import upperFirst from 'lodash/upperFirst'
-import camelCase from 'lodash/camelCase'
+import { upperFirst, camelCase } from 'lodash'
 
 import App from './App.vue'
 import router from './router'
 
+
 const app = createApp(App)
 
-requireComponent.keys().forEach(fileName => {
-  const componentConfig = requireComponent(fileName)
+// Vite-compatible automatic component registration
+const components = import.meta.glob('./components/Base*.{vue,js,ts}', { eager: true })
 
-  const compnentName = upperFirst(
-    camelCase(fileName.replace(/^\.\/(.*)\.\w+$/, '$1'))
+Object.keys(components).forEach(filePath => {
+  const componentConfig = components[filePath]
+  const fileName = filePath.replace('./components/', '')
+  const componentName = upperFirst(
+    camelCase(fileName.replace(/\.\w+$/, ''))
   )
   app.component(componentName, componentConfig.default || componentConfig)
-});
+})
 
 app.use(createPinia())
 app.use(router)
