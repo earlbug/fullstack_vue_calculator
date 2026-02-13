@@ -37,3 +37,6 @@ __screenshots__/
 
 # Vite
 *.timestamp-*-*.mjs
+
+# db is neccecary, but not the updates.
+C:\Users\erlen\OneDrive - NTNU\Documents\NTNU\4. semester\Full-Stack\vuescratch\fullstack_calculator\db.json

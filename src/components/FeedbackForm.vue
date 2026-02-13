@@ -8,19 +8,19 @@ import BaseTextField from './BaseTextField.vue';
   <form @submit.prevent="sendForm">
 
     <BaseInput
-    v-model="name"
+    v-model="feedbackEntry.name"
     label="Name"
     type="text"
     />
 
     <BaseInput
-    v-model="email"
+    v-model="feedbackEntry.email"
     label="E-mail"
     type="text"
     />
 
     <BaseTextField
-    v-model="feedback"
+    v-model="feedbackEntry.feedback"
     label="Feedback"
     type="text"
     />
@@ -28,8 +28,7 @@ import BaseTextField from './BaseTextField.vue';
     <button type="submit">Submit</button>
   </form>
 
-
-
+  <pre>{{feedbackEntry}}</pre>
 
 </template>
 
@@ -51,7 +50,7 @@ export default {
       //  Axios sends a promise
       axios.post(
         // url to where to post data to
-        'https://my-json-server.typicode.com/earlbug/fullstack_vue_calculator',
+        'http://localhost:3000/feedbackEntry',
         //payload to send to server
         this.feedbackEntry
       )
