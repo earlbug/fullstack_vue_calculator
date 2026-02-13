@@ -1,5 +1,6 @@
 <script setup>
 import BaseInput from './BaseInput.vue';
+import BaseTextField from './BaseTextField.vue';
 
 </script>
 
@@ -13,6 +14,12 @@ import BaseInput from './BaseInput.vue';
   <BaseInput
     v-model="email"
     label="E-mail"
+    type="text"
+  />
+
+  <BaseTextField
+    v-model="feedback"
+    label="Feedback"
     type="text"
   />
 
