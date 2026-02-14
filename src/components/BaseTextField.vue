@@ -1,5 +1,5 @@
 <template>
-  <label>{{ label}}</label>
+  <label>{{label}}</label>
   <textarea
     v-bind="$attrs"
     :placeholder="label"

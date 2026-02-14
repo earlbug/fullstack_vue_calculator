@@ -68,11 +68,31 @@ export default {
       if (!value) return 'This field is required'
       return true
       })
-      */
+    */
+
+    function sendForm (values) {
+      // important to validate
+      //  Axios sends a promise
+      axios.post(
+        // url to where to post data to
+        'http://localhost:3000/feedbackEntry',
+        //payload to send to server
+        values
+      )
+      .then(function (response) {
+        console.log('Response', response)
+      })
+      .catch(function (err) {
+      console.log('Error', err)
+      })
+    }
+
 
      const submit = handleSubmit(values => {
       console.log('submit', values)
+      sendForm(values)
      })
+
 
 
     return {
@@ -87,24 +107,7 @@ export default {
   }
 
 
-  /*,
-  sendForm () {
-  // important to validate
-  //  Axios sends a promise
-  axios.post(
-    // url to where to post data to
-    'http://localhost:3000/feedbackEntry',
-    //payload to send to server
-    this.feedbackEntry
-  )
-  .then(function (response) {
-    console.log('Response', response)
-  })
-  .catch(function (err) {
-  console.log('Error', err)
-  })
-}
-  */
+
 
 
 
