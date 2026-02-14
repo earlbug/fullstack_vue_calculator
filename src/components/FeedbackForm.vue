@@ -34,7 +34,16 @@ import BaseTextField from './BaseTextField.vue';
 
 <script>
 import axios from 'axios'
+import { useField } from 'vee-validate'
 export default {
+  setup() {
+    function onSubmit () {
+      alert('Ubmitted')
+    }
+
+
+    return {onSubmit}
+  },
   data () {
     return {
       feedbackEntry: {
