@@ -6,10 +6,12 @@
     class="field"
     @input="$emit('update:modelValue', $event.target.value)"
     >
-</textarea>
+  </textarea>
+  <p v-if="error">{{ error }}</p>
 </template>
 
 <script>
+
   export default {
     props: {
       label: {
@@ -19,7 +21,17 @@
       modelValue: {
         type: [String, Number],
         default: ''
+      },
+      error: {
+        type: String,
+        default: ''
       }
     }
   }
 </script>
+
+<style>
+p {
+  color: red;
+}
+</style>

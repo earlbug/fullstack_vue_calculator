@@ -6,6 +6,7 @@
     class="field"
     @input="$emit('update:modelValue', $event.target.value)"
     >
+    <p v-if="error">{{ error }}</p>
 </template>
 
 <script>
@@ -19,7 +20,17 @@
         type: [String, Number],
         default: '',
         required: true
+      },
+      error: {
+        type: String,
+        default: ''
       }
     }
   }
 </script>
+
+<style>
+p {
+  color: red;
+}
+</style>
