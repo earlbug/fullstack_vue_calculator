@@ -1,22 +1,21 @@
 import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 
-export const useCounterStore = defineStore('user', {
+export const useUserStore = defineStore('user', {
   state: () => ({
-    username: ''
+    username: '',
     email: ''
   }),
   actions: {
     setUsername(username) {
       this.username = username
-    }
+    },
     setEmail(email){
       this.email = email
     }
   },
   getters: {
-    getUsername() => username
-
+    getUsername(state) {return state.username},
+    getEmail(state) {return state.email}
   }
-  return { count, doubleCount, increment }
 })

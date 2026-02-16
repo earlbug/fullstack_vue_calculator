@@ -33,8 +33,12 @@
 <script>
 import axios from 'axios'
 import { useField, useForm } from 'vee-validate'
+import {useUserStore} from '../stores/counter.js'
 export default {
   setup () {
+
+    const store = useUserStore()
+
 
     const validations = {
       name: value => {
