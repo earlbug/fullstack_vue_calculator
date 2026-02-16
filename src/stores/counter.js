@@ -1,21 +1,26 @@
 import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 
-export const useUserStore = defineStore('user', {
-  state: () => ({
-    username: '',
-    email: ''
-  }),
-  actions: {
-    setUsername(username) {
-      this.username = username
-    },
-    setEmail(email){
-      this.email = email
-    }
-  },
-  getters: {
-    getUsername(state) {return state.username},
-    getEmail(state) {return state.email}
+export const useUserStore = defineStore('user', () => {
+
+  //state
+  const username = ref('erererl')
+  const email = ref('mail@fail.com')
+
+  // action
+  function setUsername(username) {
+    username,value = username
   }
+
+  function setEmail(email) {
+    email.value = email
+  }
+
+  //getter
+  const getUsername = computed(() => username.value)
+  const getEmail = computed(() => email.value)
+
+  return {username, email, setUsername, setEmail, getName, getEmail}
+
+
 })
