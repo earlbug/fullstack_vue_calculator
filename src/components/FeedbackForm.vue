@@ -26,7 +26,7 @@
     <button type="submit">Submit</button>
   </form>
 
-  <pre>{{name}}</pre>
+  <pre>{{}}</pre>
 
 </template>
 
@@ -75,6 +75,12 @@ export default {
     */
 
     function sendForm (values) {
+              // Store the user data in state
+        store.setUsername(name)
+        store.setEmail(email)
+
+        console.log(store.getUsername)
+        console.log(store)
       // important to validate
       //  Axios sends a promise
       axios.post(
@@ -84,6 +90,7 @@ export default {
         values
       )
       .then(function (response) {
+        // log the response on success
         console.log('Response', response)
       })
       .catch(function (err) {
@@ -96,6 +103,7 @@ export default {
       console.log('submit', values)
       sendForm(values)
      })
+
 
 
 
