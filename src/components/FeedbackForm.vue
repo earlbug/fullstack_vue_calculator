@@ -33,11 +33,11 @@
 <script>
 import axios from 'axios'
 import { useField, useForm } from 'vee-validate'
-import {useUserStore} from '../stores/counter.js'
+import {useUserStore} from '../stores/counter'
 export default {
   setup () {
 
-    const store = useUserStore()
+    const  userStore  = useUserStore();
 
 
     const validations = {
@@ -75,12 +75,7 @@ export default {
     */
 
     function sendForm (values) {
-              // Store the user data in state
-        store.setUsername(name)
-        store.setEmail(email)
 
-        console.log(store.getUsername)
-        console.log(store)
       // important to validate
       //  Axios sends a promise
       axios.post(
@@ -98,10 +93,18 @@ export default {
       })
     }
 
+    function storeUser(values) {
+      // Store the user data in state
+      userStore.setUsername(name.value.value)
+      userStore.setEmail(email.value.value)
+    }
+
 
      const submit = handleSubmit(values => {
       console.log('submit', values)
+      storeUser(values)
       sendForm(values)
+
      })
 
 
