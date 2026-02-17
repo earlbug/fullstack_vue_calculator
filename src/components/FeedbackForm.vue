@@ -15,6 +15,8 @@
     :error="emailError"
     />
 
+    <button @click="recallUser()" type="button">Recall user</button>
+
     <BaseTextField
     v-model="feedback"
     label="Feedback"
@@ -74,6 +76,8 @@ export default {
       })
     */
 
+
+
     function sendForm (values) {
 
       // important to validate
@@ -93,6 +97,7 @@ export default {
       })
     }
 
+    // TODO try to getg the values from the passed on argument
     function storeUser(values) {
       // Store the user data in state
       userStore.setUsername(name.value.value)
@@ -100,12 +105,24 @@ export default {
     }
 
 
-     const submit = handleSubmit(values => {
-      console.log('submit', values)
-      storeUser(values)
-      sendForm(values)
+    const submit = handleSubmit(values => {
+    console.log('submit', values)
+    storeUser(values)
+    sendForm(values)
+    })
 
-     })
+    const recallUser = function tesst() {
+      const storedUserName = userStore.getUsername;
+      const storedEmail = userStore.getEmail;
+
+
+      if(storedUserName != '' && storedEmail != '') {
+        name.value.value = storedUserName;
+        email.value.value = storedEmail;
+      }
+
+    }
+
 
 
 
@@ -117,12 +134,10 @@ export default {
       emailError: email.errorMessage,
       feedback: feedback.value,
       feedbackError: feedback.errorMessage,
-      submit
+      submit,
+      recallUser
     }
   }
-
-
-
 
 
 

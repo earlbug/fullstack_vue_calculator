@@ -3,6 +3,7 @@
   <input
     v-bind="$attrs"
     :placeholder="label"
+    :value="modelValue"
     class="field"
     @input="$emit('update:modelValue', $event.target.value)"
     >
