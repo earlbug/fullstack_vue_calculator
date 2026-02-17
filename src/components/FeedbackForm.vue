@@ -63,9 +63,9 @@
     validationSchema: validations
   })
 
-  const name = useField('name')
-  const email = useField('email')
-  const feedback = useField('feedback')
+  const { value: name, errorMessage: nameError } = useField('name')
+  const { value: email, errorMessage: emailError } = useField('email')
+  const { value: feedback, errorMessage: feedbackError } = useField('feedback')
   /*
   const feedback = useField('feedback', function(value) {
     if (!value) return 'This field is required'
@@ -95,8 +95,8 @@
   // TODO try to getg the values from the passed on argument
   function storeUser(values) {
     // Store the user data in state
-    userStore.setUsername(name.value.value)
-    userStore.setEmail(email.value.value)
+    userStore.setUsername(name.value)
+    userStore.setEmail(email.value)
   }
 
   // validate fields, send user info to store and send the form
@@ -107,23 +107,13 @@
   })
 
   // Get info form store, and put them in the fields if they exixt.
-  const recallUser = function tesst() {
+  function recallUser() {
     const storedUserName = userStore.getUsername;
     const storedEmail = userStore.getEmail;
     if(storedUserName != '' && storedEmail != '') {
-      name.value.value = storedUserName;
-      email.value.value = storedEmail;
+      name.value = storedUserName;
+      email.value = storedEmail;
     }
 
   }
-
-
-
-
-
-
-
-
-
-
 </script>
