@@ -9,7 +9,7 @@ import router from './router'
 const app = createApp(App)
 
 // Vite-compatible automatic component registration
-const components = import.meta.glob('./components/Base*.{vue,js,ts}', { eager: true })
+const components = import.meta.glob('./components/Base*.{vue,js}', { eager: true })
 
 Object.keys(components).forEach(filePath => {
   const componentConfig = components[filePath]

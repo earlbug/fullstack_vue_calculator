@@ -1,6 +1,7 @@
 <script setup lang="js">
 import Calculator from './views/Calculator.vue';
 import FeedbackForm from './views/FeedbackForm.vue';
+import { RouterLink, RouterView } from 'vue-router';
 
 
 
@@ -8,12 +9,20 @@ import FeedbackForm from './views/FeedbackForm.vue';
 </script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
-  <Calculator/>
+  <div id="layout">
+
+    <header>
+
+      <div class="wrapper">
+        <nav>
+          <RouterLink to="/">calculator </RouterLink>
+          <RouterLink to="/feedback">feedback </RouterLink>
+        </nav>
+      </div>
+    </header>
+
+    <RouterView />
+  </div>
 
 
 </template>
