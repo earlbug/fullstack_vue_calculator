@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="js">
 import Calculator from './views/Calculator.vue';
 import FeedbackForm from './views/FeedbackForm.vue';
 

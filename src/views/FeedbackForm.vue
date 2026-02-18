@@ -35,7 +35,7 @@
 
 </template>
 
-<script setup lang="ts">
+<script setup lang="js">
   import axios from 'axios'
   import { useField, useForm, useIsFormValid } from 'vee-validate'
   import { useUserStore } from '../stores/counter.js'

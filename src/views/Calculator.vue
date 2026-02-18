@@ -29,16 +29,16 @@
 </template>
 
 
-<script setup lang="ts">
+<script setup lang="js">
 import { ref } from 'vue';
 
-    const equationList = ref<string[]>(["streng", "streng"]);
-    const resultList = ref<string[]>(["result", "res"]);
+    const equationList = ref(["streng", "streng"]);
+    const resultList = ref(["result", "res"]);
 
     const displayText = ref('');
     // Decides if the btn should be disabled
     // based on what is on the display
-    function isDisabled(btnText: string) {
+    function isDisabled(btnText) {
         const lastChar = displayText.value.slice(-1);
         if (btnText === "c") {
             return false;
@@ -73,7 +73,7 @@ import { ref } from 'vue';
         else return false;
     }
 
-    function addSymbol(symbol: string) {
+    function addSymbol(symbol) {
         if ("c" === symbol) {
             displayText.value = "";
         }
