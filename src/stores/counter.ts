@@ -8,11 +8,11 @@ export const useUserStore = defineStore('user', () => {
   const email = ref('')
 
   // action
-  function setUsername(inpName) {
+  function setUsername(inpName:string) {
     username.value = inpName
   }
 
-  function setEmail(inpEmail) {
+  function setEmail(inpEmail:string) {
     email.value = inpEmail
   }
 

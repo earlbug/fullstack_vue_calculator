@@ -10,7 +10,7 @@
     <p v-if="error">{{ error }}</p>
 </template>
 
-<script>
+<script lang="js">
   export default {
     props: {
       label: {
