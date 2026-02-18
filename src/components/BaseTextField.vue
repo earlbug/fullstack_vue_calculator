@@ -5,8 +5,7 @@
     :placeholder="label"
     class="field"
     @input="$emit('update:modelValue', $event.target.value)"
-    >
-  </textarea>
+    ></textarea>
   <p v-if="error">{{ error }}</p>
 </template>
 

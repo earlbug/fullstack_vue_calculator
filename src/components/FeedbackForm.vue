@@ -25,7 +25,10 @@
     />
 
 
-    <button type="submit">Submit</button>
+    <button
+    type="submit"
+    v-bind:disabled="isDisabled"
+    >Submit</button>
   </form>
 
   <pre>{{}}</pre>
@@ -34,8 +37,9 @@
 
 <script setup>
   import axios from 'axios'
-  import { useField, useForm } from 'vee-validate'
+  import { useField, useForm, useIsFormValid } from 'vee-validate'
   import {useUserStore} from '../stores/counter'
+  import { computed } from 'vue';
 
   const  userStore  = useUserStore();
 
@@ -59,9 +63,10 @@
     }
   }
 
-  const {handleSubmit} = useForm({
-    validationSchema: validations
-  })
+const { handleSubmit } = useForm({
+  validationSchema: validations
+})
+
 
   const { value: name, errorMessage: nameError } = useField('name')
   const { value: email, errorMessage: emailError } = useField('email')
@@ -72,6 +77,9 @@
     return true
     })
   */
+  const isValid = useIsFormValid();
+
+  const isDisabled = computed(() => {return !isValid.value})
 
   function sendForm (values) {
 
