@@ -35,10 +35,10 @@
 
 </template>
 
-<script setup>
+<script setup lang="ts">
   import axios from 'axios'
   import { useField, useForm, useIsFormValid } from 'vee-validate'
-  import {useUserStore} from '../stores/counter'
+  import { useUserStore } from '../stores/counter.js'
   import { computed } from 'vue';
 
   const  userStore  = useUserStore();

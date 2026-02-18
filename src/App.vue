@@ -1,6 +1,6 @@
 <script setup>
-import Calculator from './components/Calculator.vue';
-import FeedbackForm from './components/FeedbackForm.vue';
+import Calculator from './views/Calculator.vue';
+import FeedbackForm from './views/FeedbackForm.vue';
 
 
 
@@ -14,7 +14,6 @@ import FeedbackForm from './components/FeedbackForm.vue';
     documentation
   </p>
   <Calculator/>
-  <FeedbackForm/>
 
 
 </template>
