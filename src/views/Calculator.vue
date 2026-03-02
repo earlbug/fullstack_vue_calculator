@@ -31,6 +31,7 @@
 
 <script setup lang="js">
 import { ref } from 'vue';
+import axios from 'axios'
 
     const equationList = ref(["streng", "streng"]);
     const resultList = ref(["result", "res"]);
@@ -78,31 +79,42 @@ import { ref } from 'vue';
             displayText.value = "";
         }
         else if ("=" === symbol) {
-            try {
-                const equation = displayText.value;
-                const result = eval(equation);
-                if (result === Infinity) {
-                    throw new Error('Division by zero');
-                }
-                if (result === -Infinity) {
-                    throw new Error('Division by zero');
-                }
-                if (result === "NaN") {
-                    throw new Error('Not a Number');
-                }
-                equationList.value.push(equation);
-                resultList.value.push(String(result));
-                displayText.value = "";
-                displayText.value = String(result);
-            } catch {
-                displayText.value = 'Error';
-            }
+          // todo: validate
+
+          axios({
+            method: 'post',
+            url: 'http://127.0.0.1:8080/api/calculate',
+            headers: {
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': '*'
+            },
+            data: {
+              "requestString": displayText.value
+            },
+          })
+          .then(function (response) {
+            displayText.value = response.data.responseString;
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+
+          /*
+        axios.post('http://127.0.0.1:8080/api/calculate', { requestString: 123 })
+          .then(function (response) {
+            displayText.value = response.data.result ?? response.data;
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+            */
+
+
 
         }
         else {
             displayText.value += symbol
         }
-
     }
 
     const operators = ["+", "*", "/"];
