@@ -87,7 +87,7 @@ const { handleSubmit } = useForm({
     //  Axios sends a promise
     axios.post(
       // url to where to post data to
-      'http://localhost:3000/feedbackEntry',
+      'https://my-json-server.typicode.com/earlbug/fullstack_vue_calculator/feedbackEntry',
       //payload to send to server
       values
     )

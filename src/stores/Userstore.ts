@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 
 import { getJwtToken } from '../utils/authService'
 
-export const useUserStore = defineStore('token', {
+export const useUserTokenStore = defineStore('token', {
     state: () => ({
       jwtToken: '',
       loggedInUser: '',
